@@ -5,6 +5,7 @@
   <p>Are you sure you want to delete "{{ person }}"?</p>
   <form method="post">
     {% csrf_token %}
+
     <button type="submit">Confirm</button>
   </form>
   <a href="{% url 'people_list' %}">Back to List</a>

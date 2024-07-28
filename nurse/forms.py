@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+from django import forms
+from .models import People
 
-</body>
-</html>
+class PeopleForm(forms.ModelForm):
+    class Meta:
+        model = People
+        fields = '__all__'

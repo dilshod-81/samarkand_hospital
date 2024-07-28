@@ -2,8 +2,82 @@
 
 {% block content %}
   <h1>People List</h1>
+ <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Sizga berilgan vazifa</h4>
+            </div>
+            <div class="card-body" style="overflow-x: auto;">
+                <table id="datatable1" class="table table-bordered dt-responsive nowrap w-100">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Familiyasi</th>
+                            <th>Ismi</th>
+                             <th>Sharifi</th>
+                            <th>To'g'ilgan sana</th>
+                            <th>Pasport</th>
+                            <th>PNFL</th>
+                            <th>Telefon</th>
+                            <th>Biriktilrilgan brigada</th>
+                            <th>Ovqatlanish turi</th>
+                            <th>Jismoniy faolligi</th>
+                            <th>Zarrarli odatlar</th>
+                            <th>Vazn</th>
+                            <th>Bo'y</th>
+                            <th>TVI</th>
+                            <th>Tashxisi</th>
+                            <th>Salomatlikguruhi</th>
+                            <th>Sog'lamlashtirish</th>
+                            <th>Muassa nomi</th>
+                            <th>Davolash muddati</th>
+                            <th>Xatlov o'tkazilgan sana</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for person in people %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+
+                            <td> <a href="{% url 'people_detail' person.pk %}">{{ person.familiyasi }}</a></td>
+                            <td>{{ person.ismi }}</td>
+                            <td>{{ person.sharifi }}</td> <!-- Display course name -->
+                            <td>{{ person.tugilgan_kuni|date:"d.m.Y" }}</td>
+                             <td>{{ person.address }}</td>
+                             <td>{{ person.passport }}</td>
+                             <td>{{ person.pinfl }}</td>
+                             <td>{{ person.telefon_raqami }}</td>
+                             <td>{{ person.tibbiy_brigada }}</td>
+                             <td>{{ person.ovqatlanish_turi }}</td>
+                             <td>{{ person.jismoniy_faolligi }}</td>
+                             <td>{{ person.zararli_odat }}</td>
+                            <td>{{ person.vazn }}</td>
+                            <td>{{ person.buy }}</td>
+                            <td>{{ person.tvi }}</td>
+                            <td>{{ person.tashhisi }}</td>
+                            <td>{{ person.salomatlik_guruhi }}</td>
+                            <td>{{ person.soglamlashtirish }}</td>
+                            <td>{{ person.muassasa_nomi }}</td>
+                            <td>{{ person.davolash_chorak }}</td>
+                            <td>{{ person.xatlov_sana }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> <!-- end col -->
+  </div>
+
+
   <ul>
     {% for person in people %}
+
+
       <li>
         <a href="{% url 'people_detail' person.pk %}">{{ person }}</a>
       </li>
