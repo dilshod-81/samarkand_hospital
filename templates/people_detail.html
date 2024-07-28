@@ -1,0 +1,12 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>{{ person }}</h1>
+  <p>Familiyasi: {{ person.familiyasi }}</p>
+  <p>Ismi: {{ person.ismi }}</p>
+  <p>Sharifi: {{ person.sharifi }}</p>
+  <!-- Add other fields here -->
+  <a href="{% url 'people_edit' person.pk %}">Edit</a>
+  <a href="{% url 'people_delete' person.pk %}">Delete</a>
+  <a href="{% url 'people_list' %}">Back to List</a>
+{% endblock %}
